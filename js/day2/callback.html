@@ -1,0 +1,209 @@
+<script>
+  //Task 1: Student Result Create two functions:
+  // showStudent(name) 
+  // showResult(callback) 
+  // Requirements showStudent() should print the student name. 
+  // showResult() should call the callback function after printing "Checking Result...".
+
+const showResult =(name)=>{
+     
+     console.log(name);
+      
+    
+}
+const showstudent=(callback)=>{
+   console.log("Checking Result...");
+   
+    callback("ravi")
+}
+
+showstudent(showResult)
+
+//Task 2: Login Process Create three functions:
+//login(callback) dashboard(callback) logout() 
+// Requirements Execution Order: Login Successful Dashboard Opened Logout Successful 
+// Use callbacks to control the execution.
+
+const logout=(name)=>{
+
+    console.log(name);
+    
+
+} 
+const  dashboard=(callback)=>{
+            
+    console.log("Dashboard Opened ");
+    callback("Logout Successful")
+
+
+}
+const login=(callback)=>{
+    
+    console.log("Login Successful");
+    callback(logout)
+    
+
+
+}
+
+login(dashboard)
+
+
+
+
+//Task 3: Food Ordering Create three functions:
+// placeOrder(callback) prepareFood(callback) deliverFood() 
+// Expected Output Order Placed Food Preparing...Food Delivered 
+// Use callback functions
+
+
+const  deliverFood =()=>{
+  console.log("Food Delivered ");
+    
+}
+
+const prepareFood=(callback)=>{
+ console.log("Food Preparing...");
+   callback()
+ 
+
+}
+const placeOrder =(callback)=>{
+
+  console.log( "Order Placed");
+  callback(deliverFood)
+  
+    
+} 
+
+placeOrder(prepareFood)
+
+//Task 4: Payment Process Create functions: addToCart(callback) payment(callback) invoice()
+//  Expected Output Product Added Payment Successful Invoice Generated
+
+
+const invoice=()=>{
+      
+    console.log("Invoice Generated");
+    
+
+}
+
+const payment=(callback)=>{
+
+    console.log("Payment Successful");
+    callback()
+    
+
+
+} 
+const addToCart=(callback)=>{
+  
+     console.log("Product Added ");
+
+     callback(invoice)
+     
+
+}
+addToCart(payment)
+
+//Task 3:Login Attempts Create: loginAttempt() Requirements Store login count inside a closure.
+// Example const login = loginAttempt(); login(); login(); login(); 
+// Output Attempt : 1 Attempt : 2 Attempt : 3
+
+
+
+const  loginouter=()=>{
+
+    let count=0
+
+    const logininner=()=>{
+        
+        count++
+          
+        console.log("Attempt:",count);
+        
+    }
+    return logininner;
+    
+}
+const loogin= loginouter()
+
+loogin()
+loogin()
+loogin()
+
+//Task 4:Shopping Cart Create: shoppingCart() Requirements Store total items using a closure.
+//Example const cart = shoppingCart(); cart(); cart(); cart();
+//Output Items : 1 Items : 2 Items : 3
+
+const shoppingCart=()=>{
+   
+    let count=0
+
+      const cart=()=>{
+         count++
+         console.log("Item :",count);
+         
+      }
+
+    return cart;
+
+    
+
+}
+let cart=shoppingCart()
+
+cart()
+cart()
+cart()
+
+//Interview Bonus Task (Callback + Closure) 
+//  Create a function: companyProcess() Requirements:
+//  Maintain the number of interview rounds completed using a closure.
+//  Execute each round using callbacks: 
+//  Aptitude Round Technical Round HR Round After each callback,
+//  print the current round count.
+//  After the final callback,
+//  print: Congratulations! You have completed all interview rounds.
+
+
+const  companyProcess=(callback)=>{
+      
+      callback (Technical_Round)
+
+    count=0
+
+        const Aptitude_Round=(callback)=>{
+        count++
+        console.log("round=",count);
+        callback(HR_Round)
+     }  
+
+     }
+        const Technical_Round=()=>{
+        count++
+        console.log("round=",count);
+           
+     }
+        const HR_Round=()=>{
+        count++
+        console.log("round=",count);
+   
+
+
+
+
+}
+
+companyProcess(Aptitude_Round)
+
+
+
+
+
+
+
+
+
+</script>
