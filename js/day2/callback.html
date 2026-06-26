@@ -168,10 +168,8 @@ cart()
 //  print: Congratulations! You have completed all interview rounds.
 
 
-const  companyProcess=(callback)=>{
+const  companyProcess=()=>{
       
-      callback (Technical_Round)
-
     count=0
 
         const Aptitude_Round=(callback)=>{
@@ -180,23 +178,25 @@ const  companyProcess=(callback)=>{
         callback(HR_Round)
      }  
 
-     }
-        const Technical_Round=()=>{
+     
+        const Technical_Round=(callback)=>{
         count++
         console.log("round=",count);
-           
+           callback()
      }
         const HR_Round=()=>{
         count++
         console.log("round=",count);
-   
+        console.log(" Congratulations! You have completed all interview rounds.");
+        
+        }
 
-
-
-
+        Aptitude_Round(Technical_Round)
 }
 
-companyProcess(Aptitude_Round)
+companyProcess()
+
+
 
 
 
