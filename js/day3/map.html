@@ -1,0 +1,351 @@
+<script>
+//  Task 1 - Student Management System Create an array of students. [ { id: 1, name: "Sudhan", mark: 85 }, { id: 2, name: "Ravi", mark: 45 }, { id: 3, name: "Kumar", mark: 90 } ] 
+//  Requirements Use map() to display all student names. 
+//  Use filter() to display students with marks above 50.
+//  Use find() to find the student with id 2.
+//  Use forEach() to print all marks. 
+//  Use reduce() to calculate total marks
+
+
+let arr= [ 
+    { id: 1,
+      name: "Sudhan",
+      mark: 85 }, 
+          
+    { id: 2,
+      name: "Ravi",
+      mark: 45 },
+              
+    { id: 3,
+      name: "Kumar",
+      mark: 90 } 
+                
+    ]
+
+  const displeyname= arr.map((name)=>{
+              
+                return name.name
+     
+    })
+
+    const displaymark=arr.filter((mark)=>{
+
+        return mark.mark >50
+
+    })
+
+    const student=arr.find((id)=>{
+
+        return id.id==2
+
+    })
+
+ 
+
+    console.log(displeyname);
+    console.log(displaymark);
+    console.log(student);
+    
+
+       const allmark=arr.forEach((marks)=>{
+        
+        console.log(marks.name,"=",marks.mark);
+        
+    })
+
+    const totalmark=arr.reduce((perval,curval)=>{
+
+       return perval+curval.mark
+        
+
+    },0)
+
+    console.log("totalmark=",totalmark);
+    
+
+    
+//Task 2 - Product Management System Create an array of products
+//[ { id: 1, name: "Laptop", price: 50000 }, { id: 2, name: "Mobile", price: 20000 }, { id: 3, name: "Keyboard", price: 1000 } ]
+// Requirements Use map() to display product names. 
+// Use filter() to display products above ₹10000.
+// Use find() to find product id 3. 
+// Use forEach() to print all product prices. 
+// Use reduce() to calculate total product value.
+
+let array=[
+
+    {   id: 1,
+        name: "Laptop",
+        price: 50000 },
+       
+    {   id: 2, 
+        name: "Mobile", 
+        price: 20000 },
+        
+    {   id: 3, 
+        name: "Keyboard", 
+        price: 1000 } 
+    ]
+
+    const displayproduct=array.map((names)=>{
+
+
+        return names.name
+
+    })
+    const highprice=array.filter((price)=>{
+
+        return price.price>10000
+
+    })
+
+    const id=array.find((id)=>{
+
+     
+         return id.id==2
+
+    })
+
+     
+
+
+console.log(displayproduct);
+console.log(highprice);
+console.log(id);
+
+const allprice=array.forEach((price)=>{
+
+    
+     console.log(price.name,"=", price.price);
+     
+
+})
+
+const totalproduct=array.reduce((pre,curent)=>{
+
+    return pre+curent.price
+
+},0)
+console.log("totalproduct=",totalproduct);
+
+
+//Task 3 - Employee Management System Create an array of employees.
+//  [ { id: 1, name: "John", salary: 30000 }, { id: 2, name: "David", salary: 45000 }, { id: 3, name: "Peter", salary: 60000 } ]
+//  Requirements Use map() to display employee names.
+//  Use filter() to display employees with salary greater than 40000. 
+// Use find() to find employee id 1. 
+// Use forEach() to print all salaries.
+//  Use reduce() to calculate total salary expense.
+
+
+let detailes= [
+
+     {  id: 1, 
+        name: "John", 
+        salary: 30000 }, 
+     
+        {  id: 2, 
+        name: "David", 
+        salary: 45000 }, 
+     
+        {  id: 3, 
+        name: "Peter", 
+        salary: 60000 }
+     ]
+
+    const displayproducts=detailes.map((names)=>{
+
+            return names.name
+
+      })
+
+    const highsalary=detailes.filter((value)=>{
+           
+            return value.salary>40000
+          
+    })
+
+    const ides=detailes.find((id)=>{
+
+            return id.id==1
+
+    })
+
+
+      console.log(displayproducts);
+      console.log(highsalary);
+      console.log(ides);
+    
+     const salaries=detailes.forEach((salary)=>{
+
+    
+     console.log(salary.name,"=", salary.salary);
+     
+
+    })
+
+    const totalsalary=detailes.reduce((pre,curent)=>{
+
+    return pre+curent.salary
+
+},0)
+console.log("totalsalary=",totalsalary);
+
+//. Task 4 - School Management System Create an array of schools. 
+// [ { id: 1, school: "ABC School", students: 2000 }, { id: 2, school: "XYZ School", students: 1500 }, { id: 3, school: "Green School", students: 3000 } ] 
+// Requirements Use map() to display school names.
+//  Use filter() to display schools with more than 1800 students.
+//  Use find() to find school id 2. 
+// Use forEach() to print student counts.
+//  Use reduce() to calculate total students
+    
+
+const schools = [
+
+    {
+        id: 1,
+        school: "ABC School",
+        students: 2000
+    },
+
+    {
+        id: 2,
+        school: "XYZ School",
+        students: 1500
+    },
+
+    {
+        id: 3,
+        school: "Green School",
+        students: 3000
+    }
+
+];
+
+const schoolNames = schools.map((value) => {
+    
+    return value.school;
+
+});
+
+console.log( schoolNames);
+
+
+const moreStudents = schools.filter((value) => {
+    
+    return value.students > 1800;
+
+});
+
+console.log(moreStudents);
+
+const findSchool = schools.find((value) => {
+
+    return value.id == 2;
+
+});
+
+console.log( findSchool);
+
+
+schools.forEach((value) => {
+
+    console.log("Student Count:", value.students);
+
+});
+
+
+const totalStudents = schools.reduce((preval, curval) => {
+
+    return preval + curval.students;
+
+},0);
+
+console.log("Total Students:", totalStudents);
+
+//. Task 5 - Online Course Portal Create an array of courses.
+//  [ { id: 1, course: "MERN", fee: 30000 }, { id: 2, course: "Python", fee: 25000 }, { id: 3, course: "Java", fee: 35000 } ] 
+// Requirements Use map() to display course names.
+//  Use filter() to display courses above ₹28000.
+//  Use find() to find course id 3. 
+// Use forEach() to print all course fees.
+//  Use reduce() to calculate total course fees.
+
+const courses = [
+
+    {
+        id: 1,
+        course: "MERN",
+        fee: 30000
+    },
+
+    {
+        id: 2,
+        course: "Python",
+        fee: 25000
+    },
+
+    {
+        id: 3,
+        course: "Java",
+        fee: 35000
+    }
+
+];
+
+
+const courseNames = courses.map((value) => {
+    
+    return value.course;
+
+});
+
+console.log(courseNames);
+
+
+const highFees = courses.filter((value) => {
+   
+    return value.fee > 28000;
+
+});
+
+console.log(highFees);
+
+const findCourse = courses.find((value) => {
+    
+    return value.id == 3;
+    
+});
+
+console.log(findCourse);
+
+
+courses.forEach((value) => {
+
+    console.log(value.course,"=",value.fee);
+
+});
+
+
+
+const totalFees = courses.reduce((preval, curval) => {
+   
+    return preval + curval.fee;
+
+}, 0);
+
+console.log("Total Course Fees:", totalFees);
+    
+
+   
+
+
+      
+      
+      
+
+
+   
+      
+
+</script>
