@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: white;"  id="changeColor">
+
+    <button onclick="displays()">Click Me</button>
+    <h2 id="result"></h2>
+
+    <input type="text" id="name"><br><br>
+    <button onclick="registerUser(showname)">Register</button>
+    <h2 id="registerBtn"></h2>
+ 
+    <button onclick="totalvalue()" >
+      Change Color
+    </button>
+
+    <br><br>
+
+    <button onclick="product()">
+         Load Products
+    </button>
+
+<div id="products"></div>
+
+<!---->
+<br>
+
+<input type="password" id="password">
+
+<button onclick="togglePassword()">
+    Show Password
+</button>
+
+  <script>
+
+   
+   const password = document.getElementById("password");
+
+const toggle = () => {
+
+    let isVisible = false;
+
+    const innerFunction = () => {
+
+        if (isVisible) {
+
+            password.type = "password";
+            event.target.innerText = "Show Password";
+
+        } else {
+
+            password.type = "text";
+            event.target.innerText = "Hide Password";
+
+        }
+
+        isVisible = !isVisible;
+
+    }
+
+    return innerFunction;
+
+}
+
+const togglePassword = toggle();
+    
+     
+     const product=async()=>{
+
+        const productlist= await fetch("https://dummyjson.com/products")
+
+        let res=await productlist.json()
+
+        let result=res.products
+
+         const products=document.getElementById("products")
+
+         products.innerHTML = "";
+
+         result.forEach((product)=>{
+
+                products.innerHTML +=`
+                  
+                    <ul>
+                <li><strong>Category:</strong> ${product.category}</li>
+                <li><strong>Price:</strong> ₹${product.price}</li>
+                <li><strong>Discount:</strong> ${product.discountPercentage}%</li>
+            </ul>
+            <hr>
+
+                `
+            })
+        }
+
+
+
+
+
+
+
+
+     const changeColor = document.getElementById("changeColor")
+        const arr=["red","Blue", "Green", "Yellow"]
+
+        const bgcolor=()=>{
+                 
+            let index=0
+            
+            let innerfunction=()=>{
+
+               
+
+                changeColor.style.backgroundColor=arr[index]                
+            
+                   index++
+
+                   if (index==4){
+                    index=0
+                   }
+
+            }
+            return innerfunction
+
+        }
+
+    let totalvalue=bgcolor()
+    
+       
+       let but=document.getElementById("registerBtn")
+        
+       const registerUser=(callback)=>{
+
+
+           but.innerText=`User Registered`
+
+       }
+       const showname=()=>{
+            but.innerText=`Welcome User`
+       }
+
+
+
+        let result=document.getElementById("result")
+
+        const Displaycount=()=>{
+                
+               let count=0
+
+                 innerfunction=()=>{
+                                  
+                    count++
+
+                    result.innerText=`
+                    Clicked : ${count} Times`
+
+                 }
+
+                 return innerfunction
+
+                  
+            }
+
+    const displays=Displaycount()
+
+
+    
+
+    
+
+    
+
+   
+
+    
+
+
+    
+
+
+
+
+    </script>
+
+
+
+
+</body>
+</html>
